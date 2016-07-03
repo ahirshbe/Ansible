@@ -1,0 +1,8 @@
+---
+
+ ### Glance vars 
+ path_to_cirros_image: /home/ahirshbe/git/ansible/images/cirros-0.3.0-x86_64-disk.img
+ user: admin 
+ password: HgwsgmZRB4jMQw8mXcXtZqNWr
+ tenant: admin
+ auth_url: http://10.35.180.10:5000/v2.0

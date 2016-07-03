@@ -1,0 +1,19 @@
+---
+
+- name: Create tagged instance
+  os_server:
+    cloud: openstack
+    name: "{{ item.name }}"
+    image: "{{ item.image }}"
+    flavor: "{{ instance_flavor }}"
+    timeout: 200
+    network: admin_net
+    auto_ip: 'no'
+    state: present
+  with_items:
+     - { name: 'tagged_vm_1', image: 'tagged_cirros' }
+     - { name: 'tagged_vm_2', image: 'tagged_cirros' }
+     - { name: 'tagged_vm_3', image: 'tagged_cirros' }
+     - { name: 'regular_vm_1', image: 'regular_cirros' }
+     - { name: 'regular_vm_2', image: 'regular_cirros' }
+     - { name: 'regular_vm_3', image: 'regular_cirros' }

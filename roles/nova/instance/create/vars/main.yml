@@ -1,0 +1,8 @@
+---
+## Instance vars
+tagged_instance_name: tagged_instance
+regular_instance_name: reg_instance
+#instance_user: <set the instance user>
+#ssh_keypair: <set the path to your public ssh key>
+instance_image: cirros
+instance_flavor: m1.small

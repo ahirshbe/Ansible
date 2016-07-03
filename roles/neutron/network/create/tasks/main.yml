@@ -1,0 +1,19 @@
+---
+
+- name: Create network
+  os_network:
+    cloud: openstack
+    name: admin_net
+    state: present
+
+- name: Create subnet
+  os_subnet:
+    cloud: openstack
+    name: admin_subnet
+    allocation_pool_start: "{{ allocation_pool_start }}"
+    allocation_pool_end: "{{ allocation_pool_end }}"
+    cidr: "{{ cidr }}"
+    dns_nameservers: "{{ dns_nameservers }}"
+    enable_dhcp: True
+    network_name: admin_net
+    state: present
