@@ -1,0 +1,11 @@
+---
+
+- os_image:
+    cloud: "{{ cloud }}"
+    name: "{{ image_name }}"
+    container_format: bare
+    disk_format: qcow2
+    state: present
+    filename: "{{ path_to_cirros_image }}"
+    properties:
+      cpu_arch: x86_64

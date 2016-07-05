@@ -7,12 +7,10 @@
     disk_format: qcow2
     state: present
     filename: "{{ path_to_cirros_image }}"
-    kernel: cirros-vmlinuz
-    ramdisk: cirros-initrd
     properties:
       cpu_arch: x86_64
   with_items:
-     - regular_cirros
+     - cirros
      - tagged_cirros
   register: image_results
 

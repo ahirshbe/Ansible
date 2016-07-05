@@ -1,0 +1,24 @@
+---
+
+- name: Create instance with floating ip
+  vars:
+    instance_name: vm-fip
+  os_server:
+    cloud: "{{ cloud }}"
+    name: "{{ item.name }}"
+    image: "{{ item.image }}"
+    flavor: "{{ instance_flavor }}"
+    timeout: 200
+    network: "{{ private_network_name }}"
+    auto_ip: 'no'
+    state: present
+  with_items:
+     - { name: "{{ instance_name }}", image: "{{ image_name }}" }
+
+- name: assiging floating ip
+  vars:
+    instance_name: vm-fip
+  os_floating_ip:
+    cloud: "{{ cloud }}"
+    network: "{{ external_network }}"
+    server: "{{ instance_name }}"

@@ -2,18 +2,18 @@
 
 - name: Create network
   os_network:
-    cloud: openstack
-    name: admin_net
+    cloud: "{{ cloud }}"
+    name: "{{ private_network_name }}"
     state: present
 
 - name: Create subnet
   os_subnet:
-    cloud: openstack
-    name: admin_subnet
-    allocation_pool_start: "{{ allocation_pool_start }}"
-    allocation_pool_end: "{{ allocation_pool_end }}"
+    cloud: "{{ cloud }}"
+    name: "{{ subnet_name }}"
+    allocation_pool_start: "{{ private_allocation_pool_start }}"
+    allocation_pool_end: "{{ private_allocation_pool_end }}"
     cidr: "{{ cidr }}"
     dns_nameservers: "{{ dns_nameservers }}"
     enable_dhcp: True
-    network_name: admin_net
+    network_name: "{{ private_network_name }}"
     state: present
