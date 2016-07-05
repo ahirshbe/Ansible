@@ -11,10 +11,11 @@
     auto_ip: 'no'
     state: present
   with_items:
-     - { name: "{{ floating_instance_name }}", image: "{{ image_name }}" }
+     - { name: "{{ stopped_instance_name }}", image: "{{ image_name }}" }
 
-- name: Assign floating ip
-  os_floating_ip:
-    cloud: "{{ cloud }}"
-    network: "{{ external_network }}"
-    server: "{{ floating_instance_name }}"
+- name: Stop instance
+  os_server_actions:
+       cloud: "{{ cloud }}"
+       action: stop
+       server: "{{ stopped_instance_name }}"
+       timeout: 200

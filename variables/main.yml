@@ -38,3 +38,5 @@
  regular_instance_name: reg_instance
  instance_image: cirros
  instance_flavor: m1.small
+ stopped_instance_name: vm-shutdown
+ floating_instance_name: vm-fip
