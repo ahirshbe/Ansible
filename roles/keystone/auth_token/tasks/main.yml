@@ -1,0 +1,4 @@
+---
+ - os_auth:
+     cloud: openstack
+ - debug: var=service_catalog

@@ -1,0 +1,24 @@
+---
+
+- name: Create network
+  os_network:
+    cloud: openstack
+    name: "{{ external_network }}"
+    provider_network_type: "{{ type }}"
+    provider_segmentation_id: "{{ segmentation_id }}"
+    provider_physical_network: datacentre
+    external: True
+    state: present
+
+- name: Create subnet
+  os_subnet:
+    cloud: openstack
+    name: external_subnet
+    allocation_pool_start: "{{ allocation_pool_start }}"
+    allocation_pool_end: "{{ allocation_pool_end }}"
+    cidr: "{{ cidr }}"
+    dns_nameservers: "{{ dns_nameservers }}"
+    gateway_ip: "{{ getway_ip}}"
+    enable_dhcp: False
+    network_name: external_network
+    state: present

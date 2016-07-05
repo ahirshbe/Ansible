@@ -1,0 +1,8 @@
+---
+
+- name: authentication
+  tags: openstack_authentication
+  hosts: localhost
+  connection: local
+  roles:
+    - keystone/auth_token

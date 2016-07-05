@@ -1,0 +1,13 @@
+---
+
+- os_project:
+    #cloud: openstack
+    auth:
+     auth_url: http://10.35.180.10:5000/v2.0
+     username: admin
+     password: HgwsgmZRB4jMQw8mXcXtZqNWr
+     project_name: admin 
+    endpoint_type: public
+    state: present
+    name: demo_tenant
+    enabled: True

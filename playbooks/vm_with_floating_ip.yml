@@ -1,0 +1,46 @@
+---
+
+- name: external network crate
+  tags: openstack_neutron
+  hosts: localhost
+  connection: local
+  roles:
+    - neutron/external_network/create
+  vars_files:
+    - /home/ahirshbe/git/ansible/variables/main.yml
+
+- name: private network create
+  tags: openstack_neutron
+  hosts: localhost
+  connection: local
+  roles:
+    - neutron/network/create
+  vars_files:
+   - /home/ahirshbe/git/ansible/variables/main.yml
+
+- name: router create
+  tags: openstack_neutron
+  hosts: localhost
+  connection: local
+  roles:
+    - neutron/router/create
+  vars_files:
+    - /home/ahirshbe/git/ansible/variables/main.yml
+
+- name: image_create
+  tags: openstack_glance
+  hosts: localhost
+  connection: local
+  roles:
+    - glance/cirros/create
+  vars_files:
+    - /home/ahirshbe/git/ansible/variables/main.yml
+
+- name: instance with floating ip
+  tags: openstack_nova
+  hosts: localhost
+  connection: local
+  roles:
+    - nova/instance_with_floating_ip/create
+  vars_files:
+    - /home/ahirshbe/git/ansible/variables/main.yml

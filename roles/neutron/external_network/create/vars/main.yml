@@ -1,0 +1,12 @@
+---
+
+### External Network vars
+type: vlan
+segmentation_id: 195
+
+### External subnet vars
+allocation_pool_start: 10.35.180.20
+allocation_pool_end: 10.35.180.100
+cidr: 10.35.180.0/24
+dns_nameservers: 10.35.28.28
+getway_ip: 10.35.180.254

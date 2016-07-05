@@ -1,0 +1,40 @@
+---
+
+ ###  GLOBAL VARIABLES
+ cloud: openstack
+ dns_nameservers: 10.35.28.28
+
+ ### Glance vars 
+ path_to_cirros_image: /home/ahirshbe/git/ansible/images/cirros-0.3.0-x86_64-disk.img
+ user: admin 
+ password: HgwsgmZRB4jMQw8mXcXtZqNWr
+ tenant: admin
+ auth_url: http://10.35.180.10:5000/v2.0
+ image_name: cirros
+
+ ### External Network vars
+ external_network: external_network
+ type: vlan
+ segmentation_id: 195
+ ext_alloc_pool_start: 10.35.180.20
+ ext_alloc_pool_end: 10.35.180.100
+ ext_cidr: 10.35.180.0/24
+ getway_ip: 10.35.180.254
+
+ ### Network vars
+ private_network_name: private_net
+ subnet_name: private_subnet
+ private_allocation_pool_start: 10.10.10.10
+ private_allocation_pool_end: 10.10.10.50
+ cidr: 10.10.10.0/24
+
+ ### Router vars
+ router_name: ext_pub_router
+ router_network: external_network
+ interface: private_subnet
+ 
+ ### Instance vars
+ tagged_instance_name: tagged_instance
+ regular_instance_name: reg_instance
+ instance_image: cirros
+ instance_flavor: m1.small

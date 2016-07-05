@@ -1,0 +1,9 @@
+---
+
+- os_router:
+    cloud: "{{ cloud }}"
+    state: present
+    name: "{{ router_name }}"
+    network: "{{ external_network }}"
+    interfaces:
+      - "{{ subnet_name }}"
