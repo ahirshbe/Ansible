@@ -1,0 +1,24 @@
+---
+
+- name: Create security group
+  os_security_group:
+    cloud: "{{ cloud }}"
+    name: "{{ security_group_name }}"
+    description: "This is a demo security group"
+    state: present
+  register: sec_group_check
+
+- name: Add security group rules
+  os_security_group_rule:
+    cloud: "{{ cloud }}"
+    security_group: "{{ security_group_name }}"
+    protocol: "{{ item.proto }}"
+    port_range_min: "{{ item.port_min }}"
+    port_range_max: "{{ item.port_max }}"
+    remote_ip_prefix: '0.0.0.0/0'
+    state: present
+  with_items:
+    - { proto: 'tcp', port_min: '22', port_max: '22' }
+    - { proto: 'tcp', port_min: '80', port_max: '80' }
+    - { proto: 'icmp', port_min: '-1', port_max: '-1' }
+  when: sec_group_check.secgroup.name is defined and sec_group_check.secgroup.name == '{{ security_group_name }}'

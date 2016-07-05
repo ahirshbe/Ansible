@@ -6,6 +6,7 @@
     name: "{{ item.name }}"
     image: "{{ item.image }}"
     flavor: "{{ instance_flavor }}"
+    security_groups: "{{ security_group_name }}"
     timeout: 200
     network: "{{ private_network_name }}"
     auto_ip: 'no'

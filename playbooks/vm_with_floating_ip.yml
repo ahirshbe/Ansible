@@ -36,6 +36,15 @@
   vars_files:
     - /home/ahirshbe/git/ansible/variables/main.yml
 
+- name: Create security group
+  tags: openstack_neutron
+  hosts: localhost
+  connection: local
+  roles:
+    - neutron/security_groups/create
+  vars_files:
+    - /home/ahirshbe/git/ansible/variables/main.yml
+
 - name: instance with floating ip
   tags: openstack_nova
   hosts: localhost

@@ -40,3 +40,6 @@
  instance_flavor: m1.small
  stopped_instance_name: vm-shutdown
  floating_instance_name: vm-fip
+
+ ### Security groups
+ security_group_name: my_security_group
